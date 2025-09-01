@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Centros de Acopio</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-  <style>
-    #map { height: 600px; width: 100%; }
-    body { font-family: Arial, sans-serif; margin: 0; }
-    header { background:#4fb052; color:#fff; padding:12px 16px; text-align:center; }
-    .controls { padding:10px; text-align:center; background:#f3f3f3; }
-    input { padding:6px; width:200px; border-radius:5px; border:1px solid #ccc; margin-right:5px; }
-    button { padding:6px 12px; border:none; border-radius:5px; background:#4fb052; color:#fff; cursor:pointer; font-weight:bold; }
-    button:hover { background:#45a04a; }
-  </style>
-</head>
-<body>
-
-<header>Centros de Acopio - La Libertad</header>
-<div class="controls">
-  <button onclick="usarMiUbicacion()"> Usar mi ubicación</button>
-  <input type="text" id="buscador" placeholder="Buscar centro por nombre">
-  <button onclick="buscarCentro()">Buscar</button>
-</div>
-
-<div id="map"></div>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  // Lista de centros de acopio
+// Lista de centros de acopio
   var centros = [
     {nombre: "RECITODO", lat: 13.698885, lng: -89.177265, link: "https://maps.app.goo.gl/6HyxFqUfk9DV5L287?g_st=aw"},
     {nombre: "Recicla 503", lat: 13.675454, lng: -89.259186, link: "https://maps.app.goo.gl/WisGSqPxSnJMMRWn9?g_st=aw"},
@@ -133,31 +104,3 @@
     return R*c; // km
   }
   function deg2rad(deg) { return deg * (Math.PI/180); }
-
-</script>
-
-<!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12 ">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 ">
-                <div class="text-center">
-                    <h3 class="text-xl font-bold mb-4">SortlyScan</h3>
-                    <p class="text-gray-400">Transformando el mundo a través de la educación ambiental y la separación responsable de residuos.</p>
-                </div>
-                <div class="text-center">
-                    <h4 class="font-semibold mb-4">Contacto</h4>
-                    <a href="Home_pw.html"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
-                    <p class="text-gray-400 mb-2">sortlyscan_sv</p>
-                </div>
-                <div class="text-center">
-                    <h3 class="text-xl font-bold mb-4">Dirección</h3>
-                    <p class="text-gray-400">Centro Supérate Merlet, Calle Circunvalacion, Antiguo Cuscatlán, El Salvador</p>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 SortlyScan. Todos los derechos reservados. 🌱</p>
-            </div>
-        </div>
-
-</body>
-</html>
