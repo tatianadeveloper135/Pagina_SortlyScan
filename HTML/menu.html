@@ -5,89 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reciclaje - Inicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #acdc5f 0%, #3a6b35 100%); }
-        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .pulse-animation { animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-    </style>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+  <link rel="stylesheet" href="CSS/menu.css">
+  <script src="JS/menu.js"></script>
 
-    .navbar {
-      background-color: #2E7D32; /* Verde oscuro */
-      overflow: hidden;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    .navbar .logo {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      padding: 14px 0;
-    }
-
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .navbar ul li {
-      padding: 14px 20px;
-    }
-
-    .navbar ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .navbar ul li a:hover {
-      background-color: #1B5E20; 
-      border-radius: 4px;
-      padding: 6px 10px;
-    }
-
-    @media (max-width: 768px) {
-      .navbar ul {
-        flex-direction: column;
-        background-color: #2E7D32;
-        width: 100%;
-        display: none;
-      }
-
-      .navbar ul.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-        cursor: pointer;
-        font-size: 26px;
-        color: white;
-      }
-    }
-
-    .menu-toggle {
-      display: none;
-    }
-  </style>
 </head>
 <body>
 
@@ -95,20 +15,13 @@
     <a href="#" class="logo">SortlyScan</a>
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <ul id="nav-links">
-      <li><a href="../Login%202/index.html">Inicio</a></li>
-      <li><a href="...">Scaner</a></li>
-      <li><a href="premios.html">Premios y recompensas</a></li>
-      <li><a href="centro acopio2.html">Centros de acopio</a></li>
-      <li><a href="videosedu.html">Vídeos educativos</a></li>
+      <li><a href="inicio_sesion.html">Inicio</a></li>
+      <li><a href="...">Scaner</a></li> <!-- Conexión -->
+      <li><a href="premios.html">Premios y recompensas</a></li> <!-- Conexión -->
+      <li><a href="Centro_acopio.html">Centros de acopio</a></li>
+      <li><a href="videosedu.html">Vídeos educativos</a></li> <!-- Conexión -->
     </ul>
   </nav>
-
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('nav-links');
-      navLinks.classList.toggle('show');
-    }
-  </script>
 
 <!-- Info reciclaje -->
     <section id="Reciclaje" class="py-20 bg-green-50">
@@ -117,7 +30,7 @@
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Funciones</h2>
             </div>
             
-            <a href=""><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="..."><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl card-hover text-center">
                     <div class="text-4xl mb-4">🌍</div>
                     <h4 class="font-semibold text-gray-800 mb-2">Scaner</h4>
@@ -131,7 +44,7 @@
                     <p class="text-gray-600 text-sm">Guarda tu historial de reciclaje, acumula tus premios y participa en nuestro ranking</p>
                 </div></a>
 
-              <a href="centro acopio2.html"><div class="bg-white p-6 rounded-xl card-hover text-center">
+              <a href="Centro_acopio.html"><div class="bg-white p-6 rounded-xl card-hover text-center">
                     <div class="text-4xl mb-4">📍</div>
                     <h4 class="font-semibold text-gray-800 mb-2">Centros de acopio</h4>
                     <p class="text-gray-600 text-sm">Encuentra centros de reciclaje cerca de ti y descubre lugares donde puedes llevar tu reciclaje.</p>

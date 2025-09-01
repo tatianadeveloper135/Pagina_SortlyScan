@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .award-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+        .award-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px #3a6b35;
+        }
+        .premium-award {
+            background: linear-gradient(135deg, #fef3c7 0%, #cc882f 100%);
+        }
+        .premium-award:hover {
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg,#acdc5f 0%,#3a6b35 50%, #acdc5f 100%);
+        }
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 0 #3a6b35; }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
