@@ -33,7 +33,7 @@
             0%, 100% { box-shadow: 0 0 0 0 #3a6b35; }
             70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
         }
-.navbar {
+    .navbar {
       background-color: #2E7D32; /* Verde oscuro */
       overflow: hidden;
       display: flex;

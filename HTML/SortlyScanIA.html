@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de basura</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/barraNavIA.css">
+</head>
+<body>
+    <div id="arduinoStatus" class="arduino-status">
+        🔌 Arduino Desconectado
+    </div>
+
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Cargando modelo de IA</div>
+            <div class="loading-details" id="loadingDetails">
+                Inicializando TensorFlow.js y MobileNet para integracion de Arduino...
+            </div>
+        </div>
+    </div>
+
+    <div id="mainInterface" class="main-container" style="display: none;">
+        <div class="header">
+            <div class="header-card">
+                <h1 class="header-title">Escaner de SortlyScan</h1>
+            </div>
+        </div>
+
+        <div class="camera-container">
+            <video id="video" autoplay muted playsinline></video>
+            <canvas id="detectionCanvas" class="detection-overlay"></canvas>
+        </div>
+
+        <div id="statusIndicator" class="status-indicator info">
+            l
+        </div>
+
+        <div id="autoIndicator" class="auto-indicator">
+            🔄 AUTODETECTANDO...
+        </div>
+
+        <div class="controls-panel">
+            <button id="connectArduino" class="control-button arduino">🔌 Conectar Arduino</button>
+            <button id="startBtn" class="control-button primary">🎥 Iniciar</button>
+            <button id="stopBtn" class="control-button danger" disabled>⏹️ Parar</button>
+            <button id="detectBtn" class="control-button" disabled>🔍 Detectar</button>
+            <div class="auto-toggle">
+                <span class="auto-toggle-label">Auto</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="autoToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div id="infoPanel" class="info-panel">
+            <div class="waste-category-display">
+                <div class="waste-category-large unknown" id="wasteCategoryLarge">
+                    ¡Listo!
+                </div>
+            </div>
+           
+            <div class="info-details">
+                <div class="info-item">
+                    <div class="info-value" id="confidenceValue">--</div>
+                    <div class="info-label">Viabilidad</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value" id="processingValue">--</div>
+                    <div class="info-label">Tiempo (s)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value" id="totalCount">0</div>
+                    <div class="info-label">Total</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value" id="accuracyValue">--</div>
+                    <div class="info-label">Promedio</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="serial-panel">
+            <h3 class="serial-title">📡 Monitor Serial</h3>
+            <div id="serialLog" class="serial-log">
+                > Monitor Serial de arduino<br>
+                > Esperando conexión...<br>
+            </div>
+            <div class="serial-commands">
+                <div class="command-item">
+                    <span>Orgánica:</span>
+                    <span class="command-code">'w'</span>
+                </div>
+                <div class="command-item">
+                    <span>Papel:</span>
+                    <span class="command-code">'p'</span>
+                </div>
+                <div class="command-item">
+                    <span>Plástico:</span>
+                    <span class="command-code">'l'</span>
+                </div>
+                <div class="command-item">
+                    <span>Vidrio:</span>
+                    <span class="command-code">'g'</span>
+                </div>
+                <div class="command-item">
+                    <span>Electrónico:</span>
+                    <span class="command-code">'e'</span>
+                </div>
+                <div class="command-item">
+                    <span>Aluminio:</span>
+                    <span class="command-code">'c'</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/Java.js"></script>
+</body>
+</html>
