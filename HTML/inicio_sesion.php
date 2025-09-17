@@ -10,7 +10,7 @@
 
   <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <form onsubmit="redirectToMenu(event)">
+    <form id= "form_login" onsubmit="redirectToMenu(event)">
       <div class="form-group">
         <label for="usuario">Username:</label>
         <input type="text" id="usuario" name="usuario" required>
