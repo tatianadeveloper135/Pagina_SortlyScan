@@ -194,15 +194,7 @@
                                 <span class="text-2xl mr-2">👤</span>
                                 Información Personal
                             </h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre Completo *</label>
-                                    <input type="text" id="fullName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="Tu nombre completo">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
-                                    <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="tu@email.com">
-                                </div>
+                            <div class="grid md:grid-cols-2 
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-700 mb-2">Ciudad *</label>
                                     <input type="text" id="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="Tu ciudad">
