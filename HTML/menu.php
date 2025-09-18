@@ -101,11 +101,5 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
   <script src="JS/menu.js"></script>
-  <script>
-  function toggleProfileMenu() {
-    const menu = document.getElementById("profileMenu");
-    menu.classList.toggle("hidden");
-  }
-  </script>
 </body>
 </html>
