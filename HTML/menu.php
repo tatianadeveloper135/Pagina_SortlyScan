@@ -18,11 +18,11 @@
           <span class="text-white text-2xl font-bold">SortlyScan</span>
     </div>
     <ul id="nav-links">
-      <li><a href="menu.html">Inicio</a></li>
-      <li><a href="SortlyScanIA.html">Escaner</a></li> <!-- Conexión IA -->
-      <li><a href="premios.html">Premios y recompensas</a></li>
-      <li><a href="Centro_acopio.html">Centros de acopio</a></li>
-      <li><a href="videosedu.html">Vídeos educativos</a></li>
+      <li><a href="menu.php">Inicio</a></li>
+      <li><a href="SortlyScanIA.php">Escaner</a></li> <!-- Conexión IA -->
+      <li><a href="premios.php">Premios y recompensas</a></li>
+      <li><a href="Centro_acopio.php">Centros de acopio</a></li>
+      <li><a href="videosedu.php">Vídeos educativos</a></li>
     </ul>
   </nav>
 
@@ -33,7 +33,7 @@
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Funciones</h2>
             </div>
             
-            <a href="SortlyScanIA.html"><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="SortlyScanIA.php"><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl card-hover text-center">
                     <div class="text-4xl mb-4">🌍</div>
                     <h4 class="font-semibold text-gray-800 mb-2">Scaner</h4>
@@ -41,19 +41,19 @@
                 </div></a>
             
             
-            <a href="premios.html"><div class="bg-white p-6 rounded-xl card-hover text-center">
+            <a href="premios.php"><div class="bg-white p-6 rounded-xl card-hover text-center">
                     <div class="text-4xl mb-4">🏆</div>
                     <h4 class="font-semibold text-gray-800 mb-2">Premios y recompensas</h4>
                     <p class="text-gray-600 text-sm">Guarda tu historial de reciclaje, acumula tus premios y participa en nuestro ranking</p>
                 </div></a>
 
-              <a href="Centro_acopio.html"><div class="bg-white p-6 rounded-xl card-hover text-center">
+              <a href="Centro_acopio.php"><div class="bg-white p-6 rounded-xl card-hover text-center">
                     <div class="text-4xl mb-4">📍</div>
                     <h4 class="font-semibold text-gray-800 mb-2">Centros de acopio</h4>
                     <p class="text-gray-600 text-sm">Encuentra centros de reciclaje cerca de ti y descubre lugares donde puedes llevar tu reciclaje.</p>
                 </div></a>
 
-              <a href="videosedu.html"><div class="bg-white p-6 rounded-xl card-hover text-center">
+              <a href="videosedu.php"><div class="bg-white p-6 rounded-xl card-hover text-center">
                     <div class="text-4xl mb-4">👥</div>
                     <h4 class="font-semibold text-gray-800 mb-2">Vídeos de educación ambiental</h4>
                     <p class="text-gray-600 text-sm">Aprende y enseña con vídeos comprensibles para todo público. Conoce sobre la clasificación del reciclaje y ayuda al ambiente. </p>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="text-center">
                     <h4 class="font-semibold mb-4">Contacto</h4>
-                    <a href="Home_pw.html"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
+                    <a href="Home_pw.php"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
                     <p class="text-gray-400 mb-2">sortlyscan_sv</p>
                 </div>
                 <div class="text-center">

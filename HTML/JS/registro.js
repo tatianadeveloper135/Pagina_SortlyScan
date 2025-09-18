@@ -1,7 +1,7 @@
 function redirectToMenu(event) {
       event.preventDefault(); 
       
-      window.location.href = "menu.html"; 
+      window.location.href = "menu.php"; 
 
       
     }

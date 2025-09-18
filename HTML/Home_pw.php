@@ -20,7 +20,7 @@
                 <a href="#Inicio" class="hover:text-green-200 transition-colors">Inicio</a>
                 <a href="#Funciones" class="hover:text-green-200 transition-colors">Funciones</a>
                 <a href="#Reciclaje" class="hover:text-green-200 transition-colors">Reciclaje</a>
-                <a href="inicio_sesion.html" class="hover:text-green-200 transition-colors">Iniciar Sesión</a>
+                <a href="inicio_sesion.php" class="hover:text-green-200 transition-colors">Iniciar Sesión</a>
             </div>
         </nav>
     </header>
@@ -36,7 +36,7 @@
                     La aplicación que te ayuda a reciclar correctamente, ganar puntos y cuidar el planeta
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="inicio_sesion.html"><button class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-50 transition-colors pulse-animation">
+                    <a href="inicio_sesion.php"><button class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-50 transition-colors pulse-animation">
                         Inicia sesión
                     </button></a>
                     <a href="#Funciones" class="hover:text-green-200 transition-colors"><button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-green-600 transition-colors">
@@ -129,14 +129,14 @@
                     <button class="bg-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-3 hover:bg-gray-800 transition-colors">
                         <div class="text-center">
                             <div class="text-xs">Empieza hoy:</div>
-                            <div class="text-lg"><a href="registro.html">Reguistrarse</a></div>
+                            <div class="text-lg"><a href="registro.php">Registrarse</a></div>
                         </div>
                     </button>
                     
-                    <a href="inicio_sesion.html"><button class="bg-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-3 hover:bg-gray-800 transition-colors">
+                    <a href="inicio_sesion.php"><button class="bg-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-3 hover:bg-gray-800 transition-colors">
                         <div class="text-center">
                             <div class="text-xs">O vuelve a la comunidad:</div>
-                            <div class="text-lg"><a href="inicio_sesion.html">Iniciar sesión</a></div>
+                            <div class="text-lg"><a href="inicio_sesion.php">Iniciar sesión</a></div>
                         </div>
                     </button></a>
                 </div>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="text-center">
                     <h4 class="font-semibold mb-4">Contacto</h4>
-                    <a href="Home_pw.html"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
+                    <a href="Home_pw.php"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
                     <p class="text-gray-400 mb-2">sortlyscan_sv</p>
                 </div>
                 <div class="text-center">

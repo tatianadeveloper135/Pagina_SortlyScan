@@ -16,11 +16,11 @@
           <span class="text-white text-2xl font-bold">SortlyScan</span>
     </div>
     <ul id="nav-links">
-      <li><a href="menu.html">Inicio</a></li>
-      <li><a href="premios.html">Premios y recompensas</a></li> <!-- Conexión IA -->
-      <li><a href="premios.html">Premios y recompensas</a></li>
-      <li><a href="Centro_acopio.html">Centros de acopio</a></li>
-      <li><a href="videosedu.html">Vídeos educativos</a></li>
+      <li><a href="menu.php">Inicio</a></li>
+      <li><a href="premios.php">Premios y recompensas</a></li> <!-- Conexión IA -->
+      <li><a href="premios.php">Premios y recompensas</a></li>
+      <li><a href="Centro_acopio.php">Centros de acopio</a></li>
+      <li><a href="videosedu.php">Vídeos educativos</a></li>
     </ul>
   </nav>
 
@@ -46,7 +46,7 @@
                 </div>
                 <div class="text-center">
                     <h4 class="font-semibold mb-4">Contacto</h4>
-                    <a href="Home_pw.html"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
+                    <a href="Home_pw.php"><p class="text-gray-400 mb-2">📧 SortlyScan.com</p></a>
                     <p class="text-gray-400 mb-2">sortlyscan_sv</p>
                 </div>
                 <div class="text-center">
