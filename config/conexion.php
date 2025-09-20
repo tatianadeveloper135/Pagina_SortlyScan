@@ -2,7 +2,7 @@
 class Database
 {
     private $host = "localhost";
-    private $db_name = "SortlyScan";
+    private $db_name = "sortlyscan";
     private $username = "root";  // Cambiar si es necesario
     private $password = "";
     public $conn;

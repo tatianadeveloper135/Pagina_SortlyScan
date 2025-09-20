@@ -22,7 +22,7 @@ if (!empty($_POST['usuario']) && !empty($_POST['contrasena'])) {
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $contrasena == $user['contrasena']) {
+    if ($user && $contrasena == $user['Contrasena']) {
         $_SESSION['usuario'] = [
             "id" => $user['ID_Usuario'],
             "Nombre" => $user['Nombre_completo'],
