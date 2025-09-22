@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     //verificarSesion();
-
+ 
     //const btn = document.getElementById('btnLogin');
     //btn.addEventListener("click", login);
 
-    const form = document.getElementById('form_login');
+    const form = document.getElementById('form-login');
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault(); // Evita la recarga
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('../auth/login.php', {
                 method: 'POST',
-                body: formData
+                body: formData,
             });
 
             const result = await response.json();
@@ -34,4 +34,4 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Ocurrió un error de conexión' + error);
         }
     });
-});
+}); 

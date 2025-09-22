@@ -7,7 +7,7 @@
 
 </head>
 <body>
-
+ 
   <div class="register-container">
     <h2>Registrarse</h2>
     <form id="form-registro">
@@ -16,7 +16,7 @@
         <input type="email" id="correo" name="correo" required>
       </div>
       <div class="form-group">
-        <label for="usuario">Nombre:</label>
+        <label for="nombre">Nombre:</label>
         <input type="text" id="usuario" name="nombre" required>
       </div>
       <div class="form-group">
@@ -27,7 +27,7 @@
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required>
       </div>
-      <button type="submit" >Ingresar</button>
+      <button type="submit">Ingresar</button>
     </form>
     <div class="login-link">
       ¿Ya tienes una cuenta? <a href="inicio_sesion.php">Inicia sesión</a>

@@ -7,19 +7,19 @@
 
 </head>
 <body>
-
+ 
   <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <form id="form_login">
+    <form id="form-login" >
       <div class="form-group">
-        <label for="usuario">Correo electrónico:</label>
-        <input type="text" id="correo" name="usuario" required>
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
       </div>
       <div class="form-group">
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required>
       </div>
-      <input type="submit" value="Entrar">
+      <button type="submit">Ingresar</button>
       <div class="register-link">
         ¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a>
       </div>

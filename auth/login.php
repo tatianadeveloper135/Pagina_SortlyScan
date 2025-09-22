@@ -1,43 +1,43 @@
 <?php
-header("Content-Type: application/json");
+session_start();
+header('Content-Type: application/json; charset=utf-8');
 require_once("../config/conexion.php");
 
-//Esto decodifica los datos enviados en formato JSON
-//$data = json_decode(file_get_contents("php://input"), true);
+// Inicializamos variables
+$correo = null;
+$contrasena = null;
 
-//Vamos a recibir datos enviados con formData por lo que necesitamos entonces:
-
-
-if (!empty($_POST['usuario']) && !empty($_POST['contrasena'])) {
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['contrasena'];
-
-    $database = new Database();
-    $db = $database->getConnection();
-
-    $query = "SELECT * FROM usuarios WHERE Correo_electronico = :usuario";
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(":usuario", $usuario);
-    $stmt->execute();
-
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user && $contrasena == $user['Contrasena']) {
-        $_SESSION['usuario'] = [
-            "id" => $user['ID_Usuario'],
-            "Nombre" => $user['Nombre_completo'],
-            "Fechanacimiento" => $user['Fecha_nacimiento'],
-            "correo" => $user['Correo_electronico']
-        ];
-        $_SESSION['LAST_ACTIVITY'] = time(); // ⏰ Guardamos la hora de última actividad
-        echo json_encode([
-            "mensaje" => "Inicio de sesión exitoso",
-            "usuario" => $_SESSION['usuario']
-        ]);
-    } else {
-        echo json_encode(["error" => "Credenciales incorrectas"]);
-    }
+if (!empty($_POST)) {
+    $correo = isset($_POST['correo']) ? trim($_POST['correo']) : null;
+    $contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : null;
 } else {
-    echo json_encode(["error" => "Usuario y contraseña requeridos"]);
+   
+}
+
+
+// Si llegamos aquí, tenemos correo y contrasena: continuamos con la verificación
+$database = new Database();
+$db = $database->getConnection();
+
+$query = "SELECT * FROM usuarios WHERE Correo_electronico = :correo";
+$stmt = $db->prepare($query);
+$stmt->bindParam(":correo", $correo);
+$stmt->execute();
+
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($user && password_verify($contrasena, $user['Contrasena'])) {
+    $_SESSION['usuario'] = [
+        "id" => $user['ID_Usuario'],
+        "nombre" => $user['Nombre_completo'],
+        "correo" => $user['Correo_electronico']
+    ];
+    $_SESSION['LAST_ACTIVITY'] = time();
+    echo json_encode([
+        "mensaje" => "Inicio de sesión exitoso",
+        "usuario" => $_SESSION['usuario']
+    ]);
+} else {
+    echo json_encode(["error" => "Credenciales incorrectas"]);
 }
 ?>
