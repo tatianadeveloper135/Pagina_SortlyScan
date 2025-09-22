@@ -10,20 +10,24 @@
 
   <div class="register-container">
     <h2>Registrarse</h2>
-    <form onsubmit="redirectToMenu(event)">
+    <form id="form-registro">
       <div class="form-group">
         <label for="correo">Correo electrónico:</label>
         <input type="email" id="correo" name="correo" required>
       </div>
       <div class="form-group">
-        <label for="usuario">Nombre de usuario:</label>
-        <input type="text" id="usuario" name="usuario" required>
+        <label for="usuario">Nombre:</label>
+        <input type="text" id="usuario" name="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" required>
       </div>
       <div class="form-group">
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required>
       </div>
-      <input type="submit" value="Registrarse">
+      <button type="submit" >Ingresar</button>
     </form>
     <div class="login-link">
       ¿Ya tienes una cuenta? <a href="inicio_sesion.php">Inicia sesión</a>

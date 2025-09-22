@@ -1,5 +1,4 @@
 <?php
-session_start();
 header("Content-Type: application/json");
 require_once("../config/conexion.php");
 
@@ -16,22 +15,19 @@ if (!empty($_POST['usuario']) && !empty($_POST['contrasena'])) {
     $database = new Database();
     $db = $database->getConnection();
 
-    $query = "SELECT * FROM usuarios WHERE Nombre_Usuario = :usuario";
+    $query = "SELECT * FROM usuarios WHERE Correo_electronico = :usuario";
     $stmt = $db->prepare($query);
     $stmt->bindParam(":usuario", $usuario);
     $stmt->execute();
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($contrasena, $user['Contraseña_Usuario'])) {
+    if ($user && $contrasena == $user['Contrasena']) {
         $_SESSION['usuario'] = [
             "id" => $user['ID_Usuario'],
-            "usuario" => $user['Nombre_Usuario'],
-            "nombre" => $user['	Nombre_completo'],
-            "correo" => $user['Correo_electronico'],
-            "fecha" => $user['Fecha_nacimiento'],
-             "contraseña" => $user['Contraseña_Usuario']
-
+            "Nombre" => $user['Nombre_completo'],
+            "Fechanacimiento" => $user['Fecha_nacimiento'],
+            "correo" => $user['Correo_electronico']
         ];
         $_SESSION['LAST_ACTIVITY'] = time(); // ⏰ Guardamos la hora de última actividad
         echo json_encode([
