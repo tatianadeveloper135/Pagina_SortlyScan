@@ -1,7 +1,8 @@
 -- Crear la base de datos
 CREATE DATABASE IF NOT EXISTS SortlyScan
   DEFAULT CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
+  DEFAULT COLLATE utf8mb4_general_ci;
+
 
 USE SortlyScan;
 
@@ -12,10 +13,10 @@ DROP TABLE IF EXISTS usuarios;
 -- Tabla de usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
   ID_Usuario INT NOT NULL AUTO_INCREMENT,
-  Nombre_completo VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  Nombre_completo VARCHAR(100) NOT NULL,
   Fecha_nacimiento DATE NOT NULL,
-  Correo_electronico VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  Contrasena VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  Correo_electronico VARCHAR(100) NOT NULL,
+  Contrasena VARCHAR(255) NOT NULL,
   PRIMARY KEY (ID_Usuario),
   UNIQUE KEY (Correo_electronico)
 );
@@ -24,8 +25,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS clasificacion (
   ID_Clasificacion INT NOT NULL AUTO_INCREMENT,
   ID_Usuario INT NOT NULL, -- relación con usuarios
-  Nombre VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  Ciudad VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  Nombre VARCHAR(100) NOT NULL,
+  Ciudad VARCHAR(100) NOT NULL,
   Categoria ENUM('individual', 'familia', 'empresa', 'escuela', 'comunidad') NOT NULL,
   Puntos INT NOT NULL DEFAULT 0,
   KgReciclados DECIMAL(10,2) NOT NULL DEFAULT 0.00,
