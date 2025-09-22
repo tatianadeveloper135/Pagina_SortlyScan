@@ -24,20 +24,6 @@
       <li><a href="Centro_acopio.php">Centros de acopio</a></li>
       <li><a href="videosedu.php">Vídeos educativos</a></li>
     </ul>
-    <div class="relative inline-block text-left ml-auto mr-4">
-  <button onclick="toggleProfileMenu()" class="flex items-center space-x-2 focus:outline-none">
-    <img src="Imágenes/user-icon.png" alt="Perfil" class="w-8 h-8 rounded-full border border-white">
-    <span class="text-white">Perfil</span>
-  </button>
-
-  <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
-    <div class="py-2">
-      <a href="premios.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">🏆 Puntuación: <strong>120</strong></a>
-      <hr class="my-1">
-      <a href="logout.php" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Cerrar sesión</a>
-    </div>
-  </div>
-</div>
   </nav>
 
 <!-- Info reciclaje -->
