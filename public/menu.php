@@ -30,7 +30,7 @@
     <section id="Reciclaje" class="py-20 bg-green-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Funciones</h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Bienvenido</h2>
             </div>
             
             <a href="SortlyScanIA.php"><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
