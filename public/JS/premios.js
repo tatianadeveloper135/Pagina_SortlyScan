@@ -35,11 +35,14 @@
             else if (materialsCount >= 3) score += 100; // Bonus por reciclar 3+ tipos
             
             return Math.round(score);
+
+            
         }
         
         // Event listeners para el formulario
         document.getElementById('calculateBtn').addEventListener('click', function() {
             const score = calculateScore();
+             document.getElementById('scoreInput').value = score; // Guardar en el input oculto
             document.getElementById('calculatedScore').textContent = score.toLocaleString();
             
             // Animación del número

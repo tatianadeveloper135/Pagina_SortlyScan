@@ -1,70 +1,74 @@
 <?php
-
-header("Content-Type: application/json");
+session_start();
+header("Content-Type: application/json; charset=utf-8");
 require_once("../config/conexion.php");
 
-// Verificamos que los datos necesarios estén presentes
 if (
     !empty($_POST['correo']) &&
     !empty($_POST['nombre']) &&
     !empty($_POST['fecha']) &&
     !empty($_POST['contrasena'])
 ) {
-    $correo = $_POST['correo'];
-    $nombre = $_POST['nombre'];
-    $fecha = $_POST['fecha'];  // Fecha de nacimiento
-    $contrasena = $_POST['contrasena'];  // Contraseña
+    $correo = trim($_POST['correo']);
+    $nombre = trim($_POST['nombre']);
+    $fecha = $_POST['fecha'];  
+    $contrasena = $_POST['contrasena'];
 
-    // Validar el formato de correo electrónico
+    // Validar email
     if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(["error" => "Correo electrónico inválido."]);
         exit();
     }
 
-    // Validar el formato de fecha
-    $fecha_formato_valido = preg_match("/^\d{4}-\d{2}-\d{2}$/", $fecha);  // Verifica formato YYYY-MM-DD
-    if (!$fecha_formato_valido) {
-        echo json_encode(["error" => "Fecha de nacimiento inválida. Debe estar en formato YYYY-MM-DD."]);
+    // Validar fecha formato YYYY-MM-DD
+    if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $fecha)) {
+        echo json_encode(["error" => "Fecha de nacimiento inválida."]);
         exit();
     }
 
-    // Encriptamos la contraseña
     $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Establecemos la conexión con la base de datos
     $database = new Database();
     $db = $database->getConnection();
 
-    // Consultamos si el correo electrónico ya está registrado
+    // Chequear si correo ya existe
     $query = "SELECT * FROM usuarios WHERE Correo_electronico = :correo";
     $stmt = $db->prepare($query);
     $stmt->bindParam(":correo", $correo);
     $stmt->execute();
 
-    // Si el correo ya está registrado, no procedemos con la inserción
     if ($stmt->rowCount() > 0) {
         echo json_encode(["error" => "El correo electrónico ya está registrado."]);
         exit();
     }
 
-    // Preparamos la consulta para insertar el nuevo usuario
+    // Insertar usuario nuevo
     $query = "INSERT INTO usuarios (Nombre_completo, Fecha_nacimiento, Correo_electronico, Contrasena) 
               VALUES (:nombre, :fecha, :correo, :contrasena)";
     $stmt = $db->prepare($query);
-
-    // Enlazamos los parámetros
     $stmt->bindParam(":nombre", $nombre);
     $stmt->bindParam(":fecha", $fecha);
     $stmt->bindParam(":correo", $correo);
     $stmt->bindParam(":contrasena", $hashed_password);
 
-    // Ejecutamos la consulta
     if ($stmt->execute()) {
-        echo json_encode(["mensaje" => "Usuario creado correctamente."]);
+        $id_usuario = $db->lastInsertId();
+
+        // Guardar en sesión
+        $_SESSION['usuario'] = [
+            "id" => $id_usuario,
+            "nombre" => $nombre,
+            "correo" => $correo
+        ];
+        $_SESSION['LAST_ACTIVITY'] = time();
+
+        echo json_encode([
+            "mensaje" => "Usuario creado y sesión iniciada.",
+            "usuario" => $_SESSION['usuario']
+        ]);
     } else {
         echo json_encode(["error" => "Error al crear el usuario."]);
     }
 } else {
     echo json_encode(["error" => "Datos incompletos."]);
 }
-?>

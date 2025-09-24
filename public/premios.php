@@ -22,6 +22,8 @@
       <li><a href="premios.php">Premios y recompensas</a></li>
       <li><a href="Centro_acopio.php">Centros de acopio</a></li>
       <li><a href="videosedu.php">Vídeos educativos</a></li>
+      <li><p id="usuarioNombre" style="color: #9ce042ff; font-weight: bold;">Usuario</p></li>
+      <li><button id="btnCerrarSesion" style="background-color: #005b1c; padding: 5px; border-radius: 15px; color: white; font-size: small; font-weight:bold; ">Cerrar sesión</button></li>
     </ul>
   </nav>
 
@@ -187,7 +189,7 @@
 
             <div class="max-w-4xl mx-auto">
                 <div class="bg-white rounded-2xl shadow-xl p-8 border border-green-100">
-                    <form id="rankingForm" class="space-y-8">
+                    <form id="rankingForm" method="POST" action="guardar_ranking.php" class="space-y-8">
                         <!-- Información Personal -->
                         <div class="bg-green-50 rounded-xl p-6">
                             <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
@@ -290,6 +292,9 @@
                                 <p>* La puntuación se calcula automáticamente basada en tus datos</p>
                             </div>
                         </div>
+
+                        <input type="hidden" name="score" id="scoreInput">
+
 
                         <!-- Botones de Acción -->
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -442,5 +447,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="JS/premios.js"></script>
+     <script src="JS/menu.js"></script>
+  <script src="JS/verificarSesion.js"></script>
+  <script src="JS/logout.js"></script>
 </body>
 </html>

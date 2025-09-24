@@ -21,6 +21,8 @@
       <li><a href="premios.php">Premios y recompensas</a></li>
       <li><a href="Centro_acopio.php">Centros de acopio</a></li>
       <li><a href="videosedu.php">Vídeos educativos</a></li>
+      <li><p id="usuarioNombre" style="color: #9ce042ff; font-weight: bold;">Usuario</p></li>
+      <li><button id="btnCerrarSesion" style="background-color: #005b1c; padding: 5px; border-radius: 15px; color: white; font-size: small; font-weight:bold; ">Cerrar sesión</button></li>
     </ul>
   </nav>
 
@@ -59,6 +61,10 @@
             </div>
         </div>
 <script src="https://cdn.tailwindcss.com"></script>
+ <script src="JS/menu.js"></script>
+    
+  <script src="JS/verificarSesion.js"></script>
+  <script src="JS/logout.js"></script>
 <script src="JS/Centro.js"></script>
 </body>
 </html>

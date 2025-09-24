@@ -171,5 +171,6 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="JS/home.js"></script>
+    
 </body>
 </html>
