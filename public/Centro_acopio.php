@@ -62,7 +62,6 @@
         </div>
 <script src="https://cdn.tailwindcss.com"></script>
  <script src="JS/menu.js"></script>
-    
   <script src="JS/verificarSesion.js"></script>
   <script src="JS/logout.js"></script>
 <script src="JS/Centro.js"></script>

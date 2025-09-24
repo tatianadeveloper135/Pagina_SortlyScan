@@ -189,21 +189,22 @@
 
             <div class="max-w-4xl mx-auto">
                 <div class="bg-white rounded-2xl shadow-xl p-8 border border-green-100">
-                    <form id="rankingForm" method="POST" action="guardar_ranking.php" class="space-y-8">
+                    <!--<form id="rankingForm" method="POST" action="guardar_ranking.php" class="space-y-8">-->
+                        <form id="rankingForm" class="space-y-8">
                         <!-- Información Personal -->
                         <div class="bg-green-50 rounded-xl p-6">
                             <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
                                 <span class="text-2xl mr-2">👤</span>
                                 Información Personal
                             </h3>
-                            <div class="grid md:grid-cols-2 
+                            <div class="grid md:grid-cols-2">
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-700 mb-2">Ciudad *</label>
-                                    <input type="text" id="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="Tu ciudad">
+                                    <input type="text" id="city" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="Tu ciudad">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-700 mb-2">Categoría</label>
-                                    <select id="category" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all">
+                                    <select id="category" name="category" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all">
                                         <option value="individual">Individual</option>
                                         <option value="familia">Familia</option>
                                         <option value="empresa">Empresa</option>
@@ -294,7 +295,9 @@
                         </div>
 
                         <input type="hidden" name="score" id="scoreInput">
-
+                        <input type="hidden" name="kg" id="kg">
+                        <input type="hidden" name="identificador" id="identificador">
+                        
 
                         <!-- Botones de Acción -->
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
