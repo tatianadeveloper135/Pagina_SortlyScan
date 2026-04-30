@@ -1,0 +1,106 @@
+// Lista de centros de acopio
+  var centros = [
+    {nombre: "RECITODO", lat: 13.698885, lng: -89.177265, link: "https://maps.app.goo.gl/6HyxFqUfk9DV5L287?g_st=aw"},
+    {nombre: "Recicla 503", lat: 13.675454, lng: -89.259186, link: "https://maps.app.goo.gl/WisGSqPxSnJMMRWn9?g_st=aw"},
+    {nombre: "Compra de materiales reciclables (Santa Tecla)", lat: 13.673479, lng: -89.293122, link: "https://maps.app.goo.gl/1EGLtbMWFkNLY9nq9?g_st=aw"},
+    {nombre: "Recicladora la Centroamericana", lat: 13.701697, lng: -89.184185, link: "https://maps.app.goo.gl/Q9Nyb5P9d4tGuycN8?g_st=aw"},
+    {nombre: "Parque industrial verde", lat: 13.705135, lng: -89.155612, link: "https://maps.app.goo.gl/b68fLW558SsujCig6?g_st=aw"},
+    {nombre: "Centro de acopio Planeta Limpio, Arevalo", lat: 13.749085, lng: -89.197805, link: "https://maps.app.goo.gl/JTij5GvBxXKtS4w86?g_st=aw"},
+    {nombre: "Centro de acopio Ayala", lat: 13.735472, lng: -89.167011, link: "https://maps.app.goo.gl/4n5Ww3qJ7xXFEZ296?g_st=aw"},
+    {nombre: "Centro de acopio PLANETA LIMPIO", lat: 13.752705, lng: -89.198543, link: "https://maps.app.goo.gl/mqHYZJq4p1drvTk6A?g_st=aw"},
+    {nombre: "CONAVE", lat: 13.701294, lng: -89.166761, link: "https://maps.app.goo.gl/dGZJUv8uQ6X3FkD47?g_st=aw"}
+  ];
+
+  // Inicializar mapa
+  var map = L.map('map').setView([13.7, -89.2], 12);
+
+  // Capa base
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  var markers = [];
+
+  // Mostrar todos los centros al inicio
+  function mostrarCentros(lista) {
+    // Limpiar marcadores existentes
+    markers.forEach(m => map.removeLayer(m.marker));
+    markers = [];
+
+    lista.forEach(c => {
+      const marker = L.marker([c.lat, c.lng]).addTo(map)
+        .bindPopup(`<b>${c.nombre}</b><br><a href="${c.link}" target="_blank">Ver en Google Maps</a>`);
+      markers.push({nombre: c.nombre.toLowerCase(), marker: marker});
+    });
+
+    // Ajustar vista
+    if (markers.length > 0) {
+      const group = L.featureGroup(markers.map(m => m.marker));
+      map.fitBounds(group.getBounds().pad(0.2));
+    }
+  }
+
+  mostrarCentros(centros);
+
+  // Función para usar ubicación y mostrar los 3 centros más cercanos
+  function usarMiUbicacion() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+
+        // Mostrar tu ubicación
+        L.marker([lat, lng], {color: "blue"}).addTo(map)
+          .bindPopup("<b>Tu ubicación</b>").openPopup();
+
+        // Calcular distancias y tomar los 3 más cercanos
+        const cercanos = centros
+          .map(c => ({...c, distancia: getDistance(lat, lng, c.lat, c.lng)}))
+          .sort((a,b) => a.distancia - b.distancia)
+          .slice(0,3);
+
+        mostrarCentros(cercanos);
+
+      }, function() {
+        alert("No se pudo obtener tu ubicación.");
+      });
+    } else {
+      alert("Tu navegador no soporta geolocalización.");
+    }
+  }
+
+  // Función para buscar centro por nombre
+  function buscarCentro() {
+    const texto = document.getElementById("buscador").value.toLowerCase();
+    const encontrado = centros.find(c => c.nombre.toLowerCase().includes(texto));
+    
+    if (encontrado) {
+      map.setView([encontrado.lat, encontrado.lng], 15);
+
+      // Revisar si el marcador ya existe, si no, crearlo temporalmente
+      let markerExistente = markers.find(m => m.nombre === encontrado.nombre.toLowerCase());
+      if(markerExistente) {
+        markerExistente.marker.openPopup();
+      } else {
+        L.marker([encontrado.lat, encontrado.lng]).addTo(map)
+          .bindPopup(`<b>${encontrado.nombre}</b><br><a href="${encontrado.link}" target="_blank">Ver en Google Maps</a>`)
+          .openPopup();
+      }
+    } else {
+      alert("No se encontró el centro.");
+    }
+  }
+
+  // Funciones de distancia (Haversine)
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // km
+    const dLat = deg2rad(lat2-lat1);
+    const dLon = deg2rad(lon2-lon1);
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(deg2rad(lat1))*Math.cos(deg2rad(lat2))*
+              Math.sin(dLon/2)**2;
+    const c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R*c; // km
+  }
+  function deg2rad(deg) { return deg * (Math.PI/180); }
